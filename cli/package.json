@@ -1,0 +1,33 @@
+{
+  "name": "@lavaclawdbot/creative-incubator",
+  "version": "0.1.0",
+  "description": "AI Creative Project Incubator - Capture, develop, validate and pitch ideas",
+  "main": "dist/index.js",
+  "bin": {
+    "lava-idea": "./bin/lava-idea"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "ai",
+    "creativity",
+    "ideas",
+    "incubator",
+    "cli"
+  ],
+  "author": "Lava (lavaclawdbot)",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "chalk": "^4.1.2",
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
