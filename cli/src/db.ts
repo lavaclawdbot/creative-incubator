@@ -74,5 +74,9 @@ export interface Idea {
   outcome: string | null;
 }
 
+// Run migrations
+import { migratePriorityScoring } from './migrations/001-add-priority-scoring';
+
 // Initialize on import
 initDatabase();
+migratePriorityScoring(db);

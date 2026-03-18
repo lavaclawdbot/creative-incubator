@@ -6,6 +6,7 @@ import { listIdeas } from './commands/list';
 import { showIdea } from './commands/show';
 import { developIdea, archiveIdea } from './commands/status';
 import { searchIdeas } from './commands/search';
+import { listPriorities, updatePriorityFields } from './commands/priority';
 import chalk from 'chalk';
 
 const program = new Command();
@@ -57,6 +58,28 @@ program
   .description('Search ideas by keyword')
   .action((query: string) => {
     searchIdeas(query);
+  });
+
+program
+  .command('priority')
+  .description('List ideas ranked by priority score')
+  .action(() => {
+    listPriorities();
+  });
+
+program
+  .command('score <id>')
+  .description('Update priority scoring fields')
+  .option('-i, --impact <score>', 'Impact potential (1-10)', parseInt)
+  .option('-e, --effort <score>', 'Effort estimate (1-10)', parseInt)
+  .option('-c, --confidence <score>', 'Confidence level (1-10)', parseInt)
+  .action((id: string, options) => {
+    updatePriorityFields(
+      parseInt(id, 10),
+      options.impact,
+      options.effort,
+      options.confidence
+    );
   });
 
 // Edit command (placeholder - needs $EDITOR support)
